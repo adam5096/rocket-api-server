@@ -1,0 +1,88 @@
+
+### 註冊
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "admin123",
+    "password": "1qaz",
+    "email": "admin123@gmail.com"
+}
+### 註冊 2
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "yorin123",
+    "password": "1qaz",
+    "email": "yorin123@gmail.com"
+}
+
+
+### 登入
+
+POST http://localhost:3000/users/sign_in
+Content-Type: application/json
+
+{
+    "username": "admin123",
+    "password": "1qaz",
+    "email": "admin123@gmail.com"
+}
+
+
+### 登入 2
+POST http://localhost:3000/users/sign_in
+Content-Type: application/json
+
+{
+    "username": "yorin123",
+    "password": "1qaz",
+    "email": "yorin123@gmail.com"
+}
+
+### admin123 登出
+
+DELETE  http://localhost:3000/users/sign_out
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDJkNTM2YWMyNTg4OWFjNWYyNTJiNCIsInVzZXJuYW1lIjoiYWRtaW4xMjMiLCJlbWFpbCI6ImFkbWluMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc0MTkzNzkzNCwiZXhwIjoxNzQxOTQxNTM0fQ.q-FETQPA62bdG3A_PCTlg375Cw9xPmrQGx46ShfpeFo
+
+### yorin123 登出 2
+
+DELETE  http://localhost:3000/users/sign_out
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDM4NDRlMWNjNTA5OGE2ZDE1ZmIyMiIsInVzZXJuYW1lIjoieW9yaW4xMjMiLCJlbWFpbCI6InlvcmluMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc0MTkzOTI4OCwiZXhwIjoxNzQxOTQyODg4fQ.VVUNPrH2E9WCvtIcT98lAXbhtXVVnORaKdYxMfspGOg
+
+### 查閱 todos(需登入才能看見)
+
+GET http://localhost:3000/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDM4NDRlMWNjNTA5OGE2ZDE1ZmIyMiIsInVzZXJuYW1lIjoieW9yaW4xMjMiLCJlbWFpbCI6InlvcmluMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc0MTkzOTI4OCwiZXhwIjoxNzQxOTQyODg4fQ.VVUNPrH2E9WCvtIcT98lAXbhtXVVnORaKdYxMfspGOg
+
+### 新增 todos
+POST http://localhost:3000/todos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDM4NDRlMWNjNTA5OGE2ZDE1ZmIyMiIsInVzZXJuYW1lIjoieW9yaW4xMjMiLCJlbWFpbCI6InlvcmluMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc0MTkzOTI4OCwiZXhwIjoxNzQxOTQyODg4fQ.VVUNPrH2E9WCvtIcT98lAXbhtXVVnORaKdYxMfspGOg
+
+Content-Type: application/json
+
+{
+  "todo": {
+    "title": "測試 yorin123 的第一個待辦事項"
+  }
+}
+
+### 修改 todos
+PUT http://localhost:3000/todos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDM4NDRlMWNjNTA5OGE2ZDE1ZmIyMiIsInVzZXJuYW1lIjoieW9yaW4xMjMiLCJlbWFpbCI6InlvcmluMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc0MTkzOTI4OCwiZXhwIjoxNzQxOTQyODg4fQ.VVUNPrH2E9WCvtIcT98lAXbhtXVVnORaKdYxMfspGOg
+
+Content-Type: application/json
+
+{
+  "todo": {
+    "title": "讓我修改成功啦QAQ",
+    "completed": true
+  }
+}
+
+
+### 刪除 todos
+
+DELETE http://localhost:3000/todos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZDM4NDRlMWNjNTA5OGE2ZDE1ZmIyMiIsInVzZXJuYW1lIjoieW9yaW4xMjMiLCJlbWFpbCI6InlvcmluMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc0MTkzOTI4OCwiZXhwIjoxNzQxOTQyODg4fQ.VVUNPrH2E9WCvtIcT98lAXbhtXVVnORaKdYxMfspGOg
