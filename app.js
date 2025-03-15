@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const cors = require('cors')
 
 const app = express();
 const PORT = 3000;
@@ -20,6 +21,8 @@ mongoose
   .catch((err) => {
     console.error("MongoDB 連接錯誤:", err);
   });
+
+app.use(cors())
 
 // 使用 JSON 解析，使開發人員更便利取用處理前端傳來的資料，
 app.use(express.json()); // JSON 數據
