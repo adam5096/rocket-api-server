@@ -69,23 +69,8 @@ app.post("/users", async (req, res) => {
       return res.status(422).json({ message: "註冊失敗" });
     }
 
-    // step 6. 生成 JWT
-    const currentTime = Math.floor(Date.now() / 1000); // 獲取當前 Unix 時間戳（秒）
-    const token = jwt.sign(
-      {
-        nickname,
-        email,
-        iat: currentTime, // 發行時間（issued at）
-        exp: currentTime + 60 * 60, // 1小時後過期
-      },
-      JWT_SECRET
-    );
-
-    // step 7. 返回成功訊息和令牌
-    res.status(201).json({
-      message: "註冊成功",
-      token,
-    });
+    // step 5. 返回成功訊息和令牌
+    res.status(201).json({message: "註冊成功"});
   } catch (error) {
     console.error("註冊錯誤:", error);
     res.status(422).json({ message: "註冊失敗" });
